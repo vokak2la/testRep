@@ -1,0 +1,114 @@
+package com.vokak;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class metodtest {
+
+
+    public static void main(String[] args) throws testException {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Input x, y ");
+        String xy = sc.nextLine();
+
+        if (xy.contains("+")) {
+            plus(xy);
+        }
+         if (xy.contains("-")) {
+            minus(xy);
+        }
+        if (xy.contains("*")) {
+            mult(xy);
+        }
+        if (xy.contains("/")) {
+            div(xy);
+        }
+    }
+    public static boolean plus(String xy) throws testException {
+        boolean plus;
+        String[] w = xy.split("\\+");
+    //    deletespace (String w[0], String w[1]);
+        int number1 = Integer.parseInt(w[0].replaceAll("\\s+", ""));
+        int number2 = Integer.parseInt(w[1].replaceAll("\\s+", ""));
+
+        if (valid (number1, number2)) {
+            plus = true;
+        }
+        Integer sum = number1 + number2;
+
+        System.out.println(number1 + " + " + number2 + " = " + sum);
+        return true;
+    }
+    public static boolean minus (String xy) throws testException {
+        boolean minus;
+        String[] w = xy.split("-");
+      //  deletespace (String w);
+        int number1 = Integer.parseInt(w[0].replaceAll("\\s+", ""));
+        int number2 = Integer.parseInt(w[1].replaceAll("\\s+", ""));
+
+        if (valid (number1, number2)) {
+            minus = true;
+        }
+        Integer sub = number1 - number2;
+
+        System.out.println(number1 + " - " + number2 + " = " + sub);
+        return true;
+    }
+    public static boolean mult (String xy) throws testException {
+        boolean mult;
+        String[] w = xy.split("\\*");
+      //  deletespace (String w);
+        int number1 = Integer.parseInt(w[0].replaceAll("\\s+", ""));
+        int number2 = Integer.parseInt(w[1].replaceAll("\\s+", ""));
+
+        if (valid (number1, number2)) {
+            mult = true;
+        }
+        Integer multi = number1 * number2;
+
+        System.out.println(number1 + " * " + number2 + " = " + multi);
+        return true;
+    }
+    public static boolean div (String xy) throws testException {
+        boolean div;
+        String[] w = xy.split("/");
+       // deletespace (String w);
+        int number1 = Integer.parseInt(w[0].replaceAll("\\s+", ""));
+        int number2 = Integer.parseInt(w[1].replaceAll("\\s+", ""));
+
+        if (valid (number1, number2)) {
+            div = true;
+        }
+        Integer delen = number1 / number2;
+
+        System.out.println(number1 + " / " + number2 + " = " + delen);
+        return true;
+    }
+
+   /* public static void deletespace(String w) throws Exception {
+
+        int number1 = Integer.parseInt(w[0].replaceAll("\\s+", ""));
+        int number2 = Integer.parseInt(w[1].replaceAll("\\s+", ""));
+    valid (number1, number2);
+    }*/
+
+    public static boolean valid(int number1, int number2) throws testException {
+    // deletespace (number1, number2);
+        boolean isValid;
+        if (number1 < 0 | number2 < 0 | number1 > 10 | number2 > 10) {
+            isValid = false;
+            throw new testException ("Херню ввел - переделать!a");
+        } else {
+            isValid = true;
+            System.out.println(" valid  ");
+        }
+        return true;
+    }
+}
+
+
+
+
+
+
+
